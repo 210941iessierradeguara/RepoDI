@@ -17,7 +17,6 @@ public class MyJframeMio extends javax.swing.JFrame {
      */
     public MyJframeMio() {
         initComponents();
-        
     }
 
     /**
