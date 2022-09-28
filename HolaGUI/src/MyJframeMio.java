@@ -1,4 +1,5 @@
 
+import dto.Persona;
 import javax.swing.JDialog;
 
 /*
@@ -105,7 +106,7 @@ public class MyJframeMio extends javax.swing.JFrame {
         // Agarrar el texto escrito en jTextFieldNombre y lo muestra por consola
         //System.out.println("Bueno dias " + jTextFieldNombre.getText());
         System.out.println("Has presionado el boton " + jSpinnerAlta.getValue());
-        JDialog jdialog = new JDialog(this, "JDialog me ha llamado", true);
+        JDialogMensaje jdialog = new JDialogMensaje(this, "JDialog me ha llamado", true);
         jdialog.setVisible(true);
     }//GEN-LAST:event_jButtonMostrarActionPerformed
 
@@ -151,6 +152,6 @@ public class MyJframeMio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSpinner jSpinnerAlta;
-    private javax.swing.JTextField jTextFieldNombre;
+    public javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 }
