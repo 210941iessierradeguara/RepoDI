@@ -1,6 +1,7 @@
 
 import dto.Persona;
 import java.io.IOException;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
@@ -265,6 +266,7 @@ public class MyJframeMio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Locale.setDefault(new Locale("es","ES"));
                 new MyJframeMio().setVisible(true);
             }
         });
