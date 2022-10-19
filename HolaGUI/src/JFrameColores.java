@@ -1,3 +1,7 @@
+
+import java.util.Enumeration;
+import javax.swing.JRadioButton;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -137,13 +141,22 @@ public class JFrameColores extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioVerdeActionPerformed
 
     private void jButtonAcceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcceptarActionPerformed
-        if (jRadioVerde.isSelected()) {
+     Enumeration e = buttonGroupColores.getElements();
+     
+     while (e.hasMoreElements()){
+         JRadioButton r = (JRadioButton) e.nextElement();
+         if (r.isSelected()){
+             jLabelColor.setText("Color elegido: " + r.getText());
+         }
+     }
+        /*   if (jRadioVerde.isSelected()) {
             jLabelColor.setText("Color elegido: Verde");
         } else if (jRadioRojo.isSelected()) {
             jLabelColor.setText("Color elegido: Rojo");
         } else {
             jLabelColor.setText("Color elegido: Azul");
-        }
+        }*/
+        
     }//GEN-LAST:event_jButtonAcceptarActionPerformed
 
     /**
