@@ -2,6 +2,7 @@
 import java.awt.List;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.RowFilter;
 import javax.swing.RowSorter.SortKey;
 import javax.swing.SortOrder;
 import javax.swing.table.DefaultTableModel;
@@ -25,13 +26,14 @@ public class JFrameTable extends javax.swing.JFrame {
     DefaultTableModel dtm;
     String cabecera[]={"Nombre","Apellidos","Edad"};
     Vector Alumnos;
+    TableRowSorter<TableModel> elQueOrdena;
     // ArrayList alumnos;
     
     public JFrameTable() {
         initComponents();
         dtm = new DefaultTableModel(cabecera,0);
         
-        TableRowSorter<TableModel> elQueOrdena = new TableRowSorter<TableModel>(dtm);
+        elQueOrdena = new TableRowSorter<TableModel>(dtm);
         jTableAlumno.setRowSorter(elQueOrdena);
         
         ArrayList<SortKey> keys = new ArrayList<SortKey>();
@@ -59,6 +61,8 @@ public class JFrameTable extends javax.swing.JFrame {
         jTableAlumno = new javax.swing.JTable();
         jButtonEliminar = new javax.swing.JButton();
         jButtonInsertar = new javax.swing.JButton();
+        jTextFieldBuscar = new javax.swing.JTextField();
+        jButtonBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,12 +93,29 @@ public class JFrameTable extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldBuscar.setText(org.openide.util.NbBundle.getMessage(JFrameTable.class, "JFrameTable.jTextFieldBuscar.text")); // NOI18N
+
+        jButtonBuscar.setText(org.openide.util.NbBundle.getMessage(JFrameTable.class, "JFrameTable.jButtonBuscar.text")); // NOI18N
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+                HolaEvent(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextFieldBuscar)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonBuscar)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonInsertar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonEliminar)
@@ -107,7 +128,10 @@ public class JFrameTable extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEliminar)
-                    .addComponent(jButtonInsertar))
+                    .addComponent(jButtonInsertar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonBuscar)))
                 .addContainerGap())
         );
 
@@ -116,7 +140,9 @@ public class JFrameTable extends javax.swing.JFrame {
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
         if(jTableAlumno.getSelectedRow() != -1){
-            dtm.removeRow(jTableAlumno.getSelectedRow());
+            //dtm.removeRow(jTableAlumno.getSelectedRow());
+            dtm.removeRow(jTableAlumno.convertColumnIndexToModel(jTableAlumno.getSelectedRow()));
+            
         }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
@@ -124,6 +150,15 @@ public class JFrameTable extends javax.swing.JFrame {
         JDialogAlumnInput alumnInput = new JDialogAlumnInput(this, true);
         alumnInput.setVisible(true);
     }//GEN-LAST:event_jButtonInsertarActionPerformed
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        RowFilter <TableModel,Integer> rf = RowFilter.regexFilter(jTextFieldBuscar.getText(),1);
+        elQueOrdena.setRowFilter(rf);
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void HolaEvent(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HolaEvent
+        System.out.println("Hola evento");
+    }//GEN-LAST:event_HolaEvent
 
     public void insertarAlumno(Alumno alumno){
         dtm.addRow(alumno.getAlumno());
@@ -165,9 +200,11 @@ public class JFrameTable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonInsertar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAlumno;
+    private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
 }
