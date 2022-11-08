@@ -4,17 +4,30 @@
  */
 package ud1_practica1.pkg2;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author DAM2Alu5
  */
 public class garaje extends javax.swing.JFrame {
-    JDialogAnyadir jDialogAnyadir;
+    boolean camion;
+    DefaultComboBoxModel dcbm;
+    ArrayList<Vehiculo> vehiculos;
     /**
      * Creates new form garaje
      */
     public garaje() {
         initComponents();
+        vehiculos = new ArrayList<>();
+        String opciones[] = {"Coche", "Furgoneta", "Camión"};
+        for (String s : opciones) {
+            jComboBoxVehi.addItem(s);
+        }
+        dcbm = new DefaultComboBoxModel();
+        jComboBoxVehAlta.removeAllItems();
+        
     }
 
     /**
@@ -37,7 +50,7 @@ public class garaje extends javax.swing.JFrame {
         jTextFieldPropDNI = new javax.swing.JTextField();
         jPanelVeh = new javax.swing.JPanel();
         jLabelVehTip = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxVehi = new javax.swing.JComboBox<>();
         jLabelVehFech = new javax.swing.JLabel();
         jSpinnerVehFech = new javax.swing.JSpinner();
         jLabelVehMod = new javax.swing.JLabel();
@@ -49,7 +62,6 @@ public class garaje extends javax.swing.JFrame {
         jLabelCamMer = new javax.swing.JLabel();
         jCheckBoxCamMer = new javax.swing.JCheckBox();
         jButtonAnyadir = new javax.swing.JButton();
-        jButtonVehAlt = new javax.swing.JButton();
         jComboBoxVehAlta = new javax.swing.JComboBox<>();
         jLabelVehAlta = new javax.swing.JLabel();
 
@@ -119,10 +131,9 @@ public class garaje extends javax.swing.JFrame {
 
         jLabelVehTip.setText("Tipo:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Coche", "Furgoneta", "Camión" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxVehi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBoxVehiActionPerformed(evt);
             }
         });
 
@@ -154,7 +165,7 @@ public class garaje extends javax.swing.JFrame {
                     .addGroup(jPanelVehLayout.createSequentialGroup()
                         .addComponent(jLabelVehTip)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBoxVehi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelVehLayout.createSequentialGroup()
                         .addGroup(jPanelVehLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelVehMod)
@@ -186,7 +197,7 @@ public class garaje extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelVehLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelVehTip)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxVehi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelVehFech)
                     .addComponent(jSpinnerVehFech, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -211,8 +222,6 @@ public class garaje extends javax.swing.JFrame {
             }
         });
 
-        jButtonVehAlt.setText("Vehículos de alta");
-
         jComboBoxVehAlta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabelVehAlta.setText("Vehículos de alta:");
@@ -224,21 +233,15 @@ public class garaje extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanelVeh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonVehAlt)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelVeh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonAnyadir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabelVehAlta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxVehAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxVehAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,22 +255,27 @@ public class garaje extends javax.swing.JFrame {
                     .addComponent(jButtonAnyadir)
                     .addComponent(jComboBoxVehAlta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelVehAlta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVehAlt)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnyadirActionPerformed
-        jDialogAnyadir = new JDialogAnyadir(this, true);
-        jDialogAnyadir.setVisible(true);
+        //Codigo añadir aquí
+        
+        
     }//GEN-LAST:event_jButtonAnyadirActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void jComboBoxVehiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxVehiActionPerformed
+        if(jComboBoxVehi.getSelectedIndex()!=2){
+            jTextFieldCamLong.setEnabled(false);
+            jCheckBoxCamMer.setEnabled(false);
+        } else {
+            jTextFieldCamLong.setEnabled(true);
+            jCheckBoxCamMer.setEnabled(true);
+        }
+    }//GEN-LAST:event_jComboBoxVehiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,10 +315,9 @@ public class garaje extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnyadir;
-    private javax.swing.JButton jButtonVehAlt;
     private javax.swing.JCheckBox jCheckBoxCamMer;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxVehAlta;
+    private javax.swing.JComboBox<String> jComboBoxVehi;
     private javax.swing.JLabel jLabelCamLong;
     private javax.swing.JLabel jLabelCamMer;
     private javax.swing.JLabel jLabelPropApe;

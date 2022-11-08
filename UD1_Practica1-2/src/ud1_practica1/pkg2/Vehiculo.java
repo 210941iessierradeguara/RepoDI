@@ -11,25 +11,20 @@ import java.util.Date;
  * @author DAM2Alu5
  */
 public class Vehiculo {
-    private String modelo,matricula,tipo;
+    private String modelo,matricula,tipo, nombre, apellidos, dni;
     private Date fecha;
-    private double altura;
-    private boolean peligrosa;
+    //private double altura;
+    //private boolean peligrosa;
 
-    public Vehiculo(String modelo, String matricula, String tipo, Date fecha) {
+
+    public Vehiculo(String modelo, String matricula, String tipo, String nombre, String apellidos, String dni, Date fecha) {
         this.modelo = modelo;
         this.matricula = matricula;
         this.tipo = tipo;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
         this.fecha = fecha;
-    }
-
-    public Vehiculo(String modelo, String matricula, String tipo, Date fecha, double altura, boolean peligrosa) {
-        this.modelo = modelo;
-        this.matricula = matricula;
-        this.tipo = tipo;
-        this.fecha = fecha;
-        this.altura = altura;
-        this.peligrosa = peligrosa;
     }
 
     public String getModelo() {
@@ -48,12 +43,16 @@ public class Vehiculo {
         return fecha;
     }
 
-    public double getAltura() {
-        return altura;
+    public String getNombre() {
+        return nombre;
     }
 
-    public boolean isPeligrosa() {
-        return peligrosa;
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getDni() {
+        return dni;
     }
 
     public void setModelo(String modelo) {
@@ -72,16 +71,20 @@ public class Vehiculo {
         this.fecha = fecha;
     }
 
-    public void setAltura(double altura) {
-        this.altura = altura;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setPeligrosa(boolean peligrosa) {
-        this.peligrosa = peligrosa;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     @Override
     public String toString() {
-        return "Vehiculo{" + "modelo=" + modelo + ", matricula=" + matricula + ", tipo=" + tipo + ", fecha=" + fecha + ", altura=" + altura + ", peligrosa=" + peligrosa + '}';
+        return "Vehiculo{" + "modelo=" + modelo + ", matricula=" + matricula + ", tipo=" + tipo + ", nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", fecha=" + fecha + '}';
     }
 }
