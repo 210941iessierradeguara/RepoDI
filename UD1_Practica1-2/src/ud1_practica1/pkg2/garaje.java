@@ -5,6 +5,9 @@
 package ud1_practica1.pkg2;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -262,7 +265,64 @@ public class garaje extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnyadirActionPerformed
-        //Codigo añadir aquí
+        try {
+            if(jTextFieldPropNom.getText().isEmpty() ||
+                jTextFieldPropApe.getText().isEmpty() ||
+                jTextFieldPropTelf.getText().isEmpty() ||
+                jTextFieldPropDNI.getText().isEmpty() ||
+                jTextFieldVehMatr.getText().isEmpty() ||
+                jTextFieldVehMod.getText().isEmpty()
+                )
+            {
+            throw new Exception();
+            } //End if vacio
+            
+            if (camion)
+            {
+                boolean peligro = false;
+                if(jCheckBoxCamMer.isSelected()){
+                    peligro = true;
+                }
+                if(jTextFieldCamLong.getText().isEmpty())
+                {
+                    throw new Exception();
+                }//END if camión vacio
+                else 
+                {
+                    Camion c = new Camion(
+                            Double.parseDouble(jTextFieldCamLong.getText()),
+                            peligro,
+                            jTextFieldVehMod.getText(),
+                            jTextFieldVehMatr.getText(),
+                            jComboBoxVehi.getSelectedItem().toString(),
+                            jTextFieldPropNom.getText(),
+                            jTextFieldPropApe.getText(),
+                            jTextFieldPropDNI.getText(),
+                            (Date) jSpinnerVehFech.getValue()
+                    );//fin nuevo camion
+                    vehiculos.add(c);
+                }
+            }//End if camión
+            else
+            {
+                Vehiculo v = new Vehiculo(
+                            jTextFieldVehMod.getText(),
+                            jTextFieldVehMatr.getText(),
+                            jComboBoxVehi.getSelectedItem().toString(),
+                            jTextFieldPropNom.getText(),
+                            jTextFieldPropApe.getText(),
+                            jTextFieldPropDNI.getText(),
+                            (Date) jSpinnerVehFech.getValue()
+                );//Fin nuevo vehi
+                vehiculos.add(v);
+            }
+        } 
+        catch (Exception ex) 
+        {
+            Logger.getLogger(garaje.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         
         
     }//GEN-LAST:event_jButtonAnyadirActionPerformed
@@ -271,9 +331,11 @@ public class garaje extends javax.swing.JFrame {
         if(jComboBoxVehi.getSelectedIndex()!=2){
             jTextFieldCamLong.setEnabled(false);
             jCheckBoxCamMer.setEnabled(false);
+            camion = false;
         } else {
             jTextFieldCamLong.setEnabled(true);
             jCheckBoxCamMer.setEnabled(true);
+            camion = true;
         }
     }//GEN-LAST:event_jComboBoxVehiActionPerformed
 
