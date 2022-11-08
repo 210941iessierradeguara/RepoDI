@@ -10,11 +10,11 @@ import java.util.Date;
  *
  * @author DAM2Alu5
  */
-public class camion extends Vehiculo {
+public class Camion extends Vehiculo {
     private Double altura;
     private boolean mPeligrosa;
-
-    public camion(Double altura, boolean mPeligrosa, String modelo, String matricula, String tipo, String nombre, String apellidos, String dni, Date fecha) {
+    
+    public Camion(Double altura, boolean mPeligrosa, String modelo, String matricula, String tipo, String nombre, String apellidos, String dni, Date fecha) {
         super(modelo, matricula, tipo, nombre, apellidos, dni, fecha);
         this.altura = altura;
         this.mPeligrosa = mPeligrosa;
