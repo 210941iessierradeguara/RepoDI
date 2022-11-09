@@ -133,14 +133,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPropNom">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPropApe">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPropTelf">
           <Properties>
@@ -148,9 +142,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPropTelf">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPropDNI">
           <Properties>
@@ -158,9 +149,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPropDNI">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -286,9 +274,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldVehMod">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelVehMatr">
           <Properties>
@@ -296,9 +281,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldVehMatr">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCamLong">
           <Properties>
@@ -306,9 +288,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldCamLong">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCamMer">
           <Properties>

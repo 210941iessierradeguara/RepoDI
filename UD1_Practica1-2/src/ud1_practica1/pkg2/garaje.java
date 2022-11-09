@@ -4,6 +4,7 @@
  */
 package ud1_practica1.pkg2;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -76,17 +77,9 @@ public class garaje extends javax.swing.JFrame {
 
         jLabelPropApe.setText("Apellidos");
 
-        jTextFieldPropNom.setEditable(false);
-
-        jTextFieldPropApe.setEditable(false);
-
         jLabelPropTelf.setText("Telf:");
 
-        jTextFieldPropTelf.setEditable(false);
-
         jLabelPropDNI.setText("DNI:");
-
-        jTextFieldPropDNI.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,15 +139,9 @@ public class garaje extends javax.swing.JFrame {
 
         jLabelVehMod.setText("Modelo:");
 
-        jTextFieldVehMod.setEditable(false);
-
         jLabelVehMatr.setText("Matrícula:");
 
-        jTextFieldVehMatr.setEditable(false);
-
         jLabelCamLong.setText("Longitud:");
-
-        jTextFieldCamLong.setEditable(false);
 
         jLabelCamMer.setText("Mercancía Peligrosa:");
 
@@ -266,6 +253,9 @@ public class garaje extends javax.swing.JFrame {
 
     private void jButtonAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnyadirActionPerformed
         try {
+            String form = "dd/MM/yyyy";
+            SimpleDateFormat sdf = new SimpleDateFormat(form);
+            
             if(jTextFieldPropNom.getText().isEmpty() ||
                 jTextFieldPropApe.getText().isEmpty() ||
                 jTextFieldPropTelf.getText().isEmpty() ||
@@ -316,6 +306,24 @@ public class garaje extends javax.swing.JFrame {
                 );//Fin nuevo vehi
                 vehiculos.add(v);
             }
+            dcbm.removeAllElements();
+            
+            for (Vehiculo vehiculo : vehiculos) {
+                dcbm.addElement("Modelo " + vehiculo.getModelo() + ", Matrícula "
+                        + vehiculo.getMatricula() + ", fecha " + 
+                        sdf.format(vehiculo.getFecha()));
+            } //End foreach
+            
+            jComboBoxVehAlta.setModel(dcbm);
+            jTextFieldVehMatr.setText("");
+            jTextFieldVehMod.setText("");
+            jTextFieldCamLong.setText("");
+            jTextFieldPropApe.setText("");
+            jTextFieldPropDNI.setText("");
+            jTextFieldPropNom.setText("");
+            jTextFieldPropTelf.setText("");
+            jCheckBoxCamMer.setSelected(false);
+            
         } 
         catch (Exception ex) 
         {
