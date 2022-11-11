@@ -14,7 +14,11 @@ public class JFrameMain extends javax.swing.JFrame {
     JButton b;
     JDialogAlta jda;
     /**
-     * Creates new form JFrameMain
+     * Creates new form JFrameMain.
+     * 
+     * El panel tiene un grid layout de 5 dias x 6 horas
+     * por cada uno de esos dias y horas se crea un botón de nombre "jbHora-Dia"
+     * añade el botón al jPanel.
      */
     public JFrameMain() {
         initComponents();
@@ -132,6 +136,10 @@ public class JFrameMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Crea una ventana nueva para dar de alta un horario
+     * con el titulo "ALTA HORAS".
+     */
     private void jMenuAltaMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenuAltaMenuSelected
         jda = new JDialogAlta(this, true);
         jda.setTitle("ALTA HORAS");

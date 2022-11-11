@@ -29,6 +29,10 @@ public class JDialogAlta extends javax.swing.JDialog {
         String horario[] = {"8:25-9:20","9:20-10:15","10:15-11-10:10","11:40-12:35","12:35-13:30","13:30-14:25"};
         String dia[] = {"Lunes","Martes","Miércoles","Jueves","Viernes"};
         
+        /**
+         * Recorre array horario y crea un checbox nuevo por cada item. 
+         * Le asigna un nombre y lo añade al arraylist de Checkboxes
+         */
         for (int i = 0; i < horario.length; i++) 
         {
             JCheckBox cb = new JCheckBox(horario[i]);
@@ -36,6 +40,10 @@ public class JDialogAlta extends javax.swing.JDialog {
             checks.add(cb);
         }
         
+        /**
+         * Recorre el array dia y crear un RaiodButton por cada item.
+         * Le asigna un nombre y lo añade al arraylist de Radiobuttons
+         */
         for (int i = 0; i < dia.length; i++) 
         {
             JRadioButton bu = new JRadioButton(dia[i]);
@@ -43,6 +51,10 @@ public class JDialogAlta extends javax.swing.JDialog {
             radio.add(bu);
         }
         
+        /**
+         * Por cada item en radio añade al panel un botón y lo añades al grupo
+         * de botones.
+         */
         radio.forEach
         (
                 x->
@@ -53,6 +65,9 @@ public class JDialogAlta extends javax.swing.JDialog {
                 
         );
         
+        /**
+         * Por cada Item en check añade un item checkbox al panel de las horas.
+         */
         checks.forEach
         (
                 hora->jPanelHoras.add(hora)
@@ -132,6 +147,16 @@ public class JDialogAlta extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * String boton: string que forma el nombre del botón a editar luego.
+     * Los stringBuilder permiten sacar datos de la función lambda.
+     * 
+     * Coge el nombre de cada item en checks que esté seleccionado.
+     * Lo añade al string que será nombre del botón.
+     * 
+     * Coge el nombre de cada item en radio que esté seleccionado.
+     * Lo añade al string que será el nombre del botón.
+     */
     private void jButtonAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnyadirActionPerformed
         String boton= "jb";
         StringBuilder sb = new StringBuilder();
