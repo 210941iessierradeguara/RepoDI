@@ -5,6 +5,7 @@
 package ud1_practica2;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
 
@@ -70,7 +71,11 @@ public class JDialogAlta extends javax.swing.JDialog {
          */
         checks.forEach
         (
-                hora->jPanelHoras.add(hora)
+                hora->
+                {
+                    jPanelHoras.add(hora);
+                    buttonGroupHoras.add(hora);
+                }
         );
         
     }
@@ -85,6 +90,7 @@ public class JDialogAlta extends javax.swing.JDialog {
     private void initComponents() {
 
         buttonGroupSemana = new javax.swing.ButtonGroup();
+        buttonGroupHoras = new javax.swing.ButtonGroup();
         jPanelDias = new javax.swing.JPanel();
         jPanelHoras = new javax.swing.JPanel();
         jLabelMod = new javax.swing.JLabel();
@@ -94,7 +100,7 @@ public class JDialogAlta extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanelDias.setBorder(javax.swing.BorderFactory.createTitledBorder("Día"));
-        jPanelDias.setLayout(new java.awt.GridLayout());
+        jPanelDias.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanelHoras.setBorder(javax.swing.BorderFactory.createTitledBorder("Hora"));
         jPanelHoras.setLayout(new java.awt.GridLayout(2, 3));
@@ -156,6 +162,11 @@ public class JDialogAlta extends javax.swing.JDialog {
      * 
      * Coge el nombre de cada item en radio que esté seleccionado.
      * Lo añade al string que será el nombre del botón.
+     * 
+     * Recoge lo escrito en el módulo y crea dos atomicReferences para poder
+     * acceder al día y la hora en la función lambda que recorre todos los
+     * botones del jFramePrincipal, busca el botón querido y al encontrarlo le
+     * cambia el texto por aquel en módulo.
      */
     private void jButtonAnyadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnyadirActionPerformed
         String boton= "jb";
@@ -184,9 +195,21 @@ public class JDialogAlta extends javax.swing.JDialog {
         );
         boton += sb2.toString();
         
-        System.out.println(boton);
         
         
+        
+        String modulo = jTextFieldModulo.getText().toString();
+        AtomicReference<String> value = new AtomicReference<>(modulo);
+        AtomicReference<String> referencia = new AtomicReference<>(boton);
+        jfm.botones.forEach(
+                x->
+                {
+                    if(x.getName().toString().equals(referencia.toString()))
+                    {
+                        x.setText(value.toString());
+                    }
+                }
+        );
     }//GEN-LAST:event_jButtonAnyadirActionPerformed
 
     /**
@@ -232,6 +255,7 @@ public class JDialogAlta extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupHoras;
     private javax.swing.ButtonGroup buttonGroupSemana;
     private javax.swing.JButton jButtonAnyadir;
     private javax.swing.JLabel jLabelMod;

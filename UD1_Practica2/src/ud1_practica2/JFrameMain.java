@@ -4,6 +4,7 @@
  */
 package ud1_practica2;
 
+import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -13,6 +14,7 @@ import javax.swing.JButton;
 public class JFrameMain extends javax.swing.JFrame {
     JButton b;
     JDialogAlta jda;
+    ArrayList<JButton> botones = new ArrayList<JButton>();
     /**
      * Creates new form JFrameMain.
      * 
@@ -27,7 +29,8 @@ public class JFrameMain extends javax.swing.JFrame {
             for (int j = 0; j < 5; j++) {
                 b = new JButton();
                 b.setName("jb"+i+ "-"+j);
-                b.setText("jb"+i+ "-"+j);
+                //b.setText("jb"+i+ "-"+j);
+                botones.add(b);
                 jPanelBotones.add(b);
                 
             }
