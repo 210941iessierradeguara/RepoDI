@@ -5,6 +5,7 @@
 package ud1_practica2;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
@@ -196,8 +197,8 @@ public class JDialogAlta extends javax.swing.JDialog {
         boton += sb2.toString();
         
         
-        
-        
+        char[] ch;
+        String[] hor = boton.split(" ");
         String modulo = jTextFieldModulo.getText().toString();
         AtomicReference<String> value = new AtomicReference<>(modulo);
         AtomicReference<String> referencia = new AtomicReference<>(boton);
@@ -207,9 +208,15 @@ public class JDialogAlta extends javax.swing.JDialog {
                     if(x.getName().toString().equals(referencia.toString()))
                     {
                         x.setText(value.toString());
+                        /*
+                        ch = x.toCharArray();
+                        Date d = new Date();
+                        jfm.addHora(Character.getNumericValue(ch[2]), Character.getNumericValue(ch[3]), modulo, d);
+                        */
                     }
                 }
         );
+        
     }//GEN-LAST:event_jButtonAnyadirActionPerformed
 
     /**

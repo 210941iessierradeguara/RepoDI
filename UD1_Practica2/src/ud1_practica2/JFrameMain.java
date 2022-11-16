@@ -4,7 +4,10 @@
  */
 package ud1_practica2;
 
+import clases.Hora;
+import clases.ListaHoras;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JButton;
 
 /**
@@ -14,7 +17,13 @@ import javax.swing.JButton;
 public class JFrameMain extends javax.swing.JFrame {
     JButton b;
     JDialogAlta jda;
+    JDialogLog dlog;
     ArrayList<JButton> botones = new ArrayList<JButton>();
+    String[] horas = {"08:25-09:20", "09:20-10:15", "10:15-11:10", "11:40-12:35",
+        "12:35-13:30", "13:30-14:45"};
+    String[] dias = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
+    ListaHoras lista;
+    
     /**
      * Creates new form JFrameMain.
      * 
@@ -35,6 +44,11 @@ public class JFrameMain extends javax.swing.JFrame {
                 
             }
         }
+    }
+    
+    public boolean addHora(int hora, int dia, String modulo, Date fechaAlta) {
+        lista.setHora(new Hora(hora, dia, modulo, fechaAlta));
+        return true;
     }
 
     /**
@@ -69,7 +83,7 @@ public class JFrameMain extends javax.swing.JFrame {
         jLabelHorario.setAlignmentY(0.0F);
 
         jPanelSemana.setBackground(new java.awt.Color(255, 255, 102));
-        jPanelSemana.setLayout(new java.awt.GridLayout());
+        jPanelSemana.setLayout(new java.awt.GridLayout(1, 0));
 
         jLabelLunes.setForeground(new java.awt.Color(0, 0, 0));
         jLabelLunes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -113,6 +127,11 @@ public class JFrameMain extends javax.swing.JFrame {
         jMenuBar1.add(jMenuAlta);
 
         jMenuLog.setText("Log");
+        jMenuLog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuLogMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenuLog);
 
         setJMenuBar(jMenuBar1);
@@ -148,6 +167,11 @@ public class JFrameMain extends javax.swing.JFrame {
         jda.setTitle("ALTA HORAS");
         jda.setVisible(true);
     }//GEN-LAST:event_jMenuAltaMenuSelected
+
+    private void jMenuLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLogMouseClicked
+        dlog = new JDialogLog(this, false);
+        dlog.setVisible(true);
+    }//GEN-LAST:event_jMenuLogMouseClicked
 
     /**
      * @param args the command line arguments
