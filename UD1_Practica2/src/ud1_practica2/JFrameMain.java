@@ -34,6 +34,8 @@ public class JFrameMain extends javax.swing.JFrame {
     public JFrameMain() {
         initComponents();
         
+        lista = new ListaHoras();
+        
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
                 b = new JButton();

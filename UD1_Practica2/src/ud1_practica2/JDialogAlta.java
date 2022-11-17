@@ -196,26 +196,27 @@ public class JDialogAlta extends javax.swing.JDialog {
         );
         boton += sb2.toString();
         
-        
-        char[] ch;
-        String[] hor = boton.split(" ");
         String modulo = jTextFieldModulo.getText().toString();
         AtomicReference<String> value = new AtomicReference<>(modulo);
         AtomicReference<String> referencia = new AtomicReference<>(boton);
+        
         jfm.botones.forEach(
                 x->
                 {
                     if(x.getName().toString().equals(referencia.toString()))
                     {
                         x.setText(value.toString());
-                        /*
-                        ch = x.toCharArray();
-                        Date d = new Date();
-                        jfm.addHora(Character.getNumericValue(ch[2]), Character.getNumericValue(ch[3]), modulo, d);
-                        */
                     }
                 }
         );
+        
+        char[] ch;
+        String[] hor = boton.split("-");
+        for (int i = 0; i < hor.length; i++) {
+            ch = hor[i].toCharArray();
+            Date d = new Date();
+            jfm.addHora(Character.getNumericValue(ch[2]), Character.getNumericValue(ch[3]), modulo, d);
+        }
         
     }//GEN-LAST:event_jButtonAnyadirActionPerformed
 
