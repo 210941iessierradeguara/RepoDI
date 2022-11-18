@@ -211,6 +211,7 @@ public class JDialogAlta extends javax.swing.JDialog {
         );
         
         char[] ch;
+        //boton.replace("jb", "");
         String[] hor = boton.split("-");
         for (int i = 0; i < hor.length; i++) {
             ch = hor[i].toCharArray();
@@ -220,6 +221,8 @@ public class JDialogAlta extends javax.swing.JDialog {
         
     }//GEN-LAST:event_jButtonAnyadirActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */
