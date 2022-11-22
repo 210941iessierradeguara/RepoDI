@@ -4,6 +4,7 @@
  */
 package ud1_practica3;
 
+import clases.Datos;
 import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ import javax.swing.plaf.synth.SynthLookAndFeel;
  * @author DAM2Alu5
  */
 public class Principal extends javax.swing.JFrame {
+    public Datos datos = new Datos();
     boolean temaDia = true;
     /**
      * Creates new form Entrada
@@ -56,6 +58,11 @@ public class Principal extends javax.swing.JFrame {
         jLabelImgStock.setMinimumSize(new java.awt.Dimension(600, 400));
 
         jButtonClient.setText("Clientes");
+        jButtonClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClientActionPerformed(evt);
+            }
+        });
 
         jButtonVehi.setText("Vehículos");
 
@@ -135,6 +142,12 @@ public class Principal extends javax.swing.JFrame {
             temaDia=true;
         }
     }//GEN-LAST:event_jButtonThemeActionPerformed
+
+    private void jButtonClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientActionPerformed
+        ClientesDialog dialogoClient = new ClientesDialog(this, true);
+        dialogoClient.setTitle("Clientes");
+        dialogoClient.setVisible(true);
+    }//GEN-LAST:event_jButtonClientActionPerformed
 
     /**
      * @param args the command line arguments
