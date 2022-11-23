@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.synth.SynthLookAndFeel;
@@ -137,7 +138,7 @@ public class Principal extends javax.swing.JFrame {
             } catch (UnsupportedLookAndFeelException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
-                
+             SwingUtilities.updateComponentTreeUI(this);
         }
         else
         {
@@ -153,7 +154,7 @@ public class Principal extends javax.swing.JFrame {
             } catch (UnsupportedLookAndFeelException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            SwingUtilities.updateComponentTreeUI(this);
             temaDia=true;
         }
     }//GEN-LAST:event_jButtonThemeActionPerformed

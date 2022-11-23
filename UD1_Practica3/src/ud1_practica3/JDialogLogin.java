@@ -7,6 +7,7 @@ package ud1_practica3;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -22,6 +23,7 @@ public class JDialogLogin extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setFeel();
+        SwingUtilities.updateComponentTreeUI(this);
     }
 
     /**
