@@ -4,7 +4,11 @@
  */
 package ud1_practica3;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -17,6 +21,7 @@ public class JDialogLogin extends javax.swing.JDialog {
     public JDialogLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setFeel();
     }
 
     /**
@@ -93,6 +98,21 @@ public class JDialogLogin extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void setFeel()
+    {
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
         if(TextFieldUser.getText().equals("Juan") && PasswordFieldMec.getText().equals("Juan123"))
         {
