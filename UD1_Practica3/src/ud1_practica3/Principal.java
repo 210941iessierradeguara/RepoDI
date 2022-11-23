@@ -19,6 +19,7 @@ import javax.swing.plaf.synth.SynthLookAndFeel;
  * @author DAM2Alu5
  */
 public class Principal extends javax.swing.JFrame {
+    public String mechanic;
     public Datos datos = new Datos();
     boolean temaDia = true;
     /**

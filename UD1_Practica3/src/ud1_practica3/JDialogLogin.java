@@ -11,7 +11,6 @@ import javax.swing.JFrame;
  * @author DAM2Alu5
  */
 public class JDialogLogin extends javax.swing.JDialog {
-
     /**
      * Creates new form JDialogLogin
      */
@@ -19,8 +18,6 @@ public class JDialogLogin extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,11 +40,11 @@ public class JDialogLogin extends javax.swing.JDialog {
 
         jLabelNMec.setText("Mecánico");
 
-        TextFieldUser.setText("Admin");
+        TextFieldUser.setText("Juan");
 
         jLabelPass.setText("Contraseña");
 
-        PasswordFieldMec.setText("Admin");
+        PasswordFieldMec.setText("Juan123");
 
         ButtonEntrar.setText("Acceder");
         ButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,9 +94,10 @@ public class JDialogLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
-        if(TextFieldUser.getText().equals("Admin") && PasswordFieldMec.getText().equals("Admin"))
+        if(TextFieldUser.getText().equals("Juan") && PasswordFieldMec.getText().equals("Juan123"))
         {
             Principal principal = new Principal();
+            principal.mechanic = TextFieldUser.getText().toString();
             principal.setTitle("Talleres Fitipaldi");
             principal.setVisible(true);
             this.dispose();

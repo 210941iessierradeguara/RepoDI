@@ -47,9 +47,9 @@
                   <Component id="jTextFieldApe" alignment="0" max="32767" attributes="0"/>
                   <Component id="jTextFieldTelf" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButtonComp" max="32767" attributes="0"/>
+                  <Component id="jButtonMod" max="32767" attributes="0"/>
                   <Component id="jButtonAnya" max="32767" attributes="0"/>
                   <Component id="jButtonBorrar" max="32767" attributes="0"/>
               </Group>
@@ -80,7 +80,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelTelf" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldTelf" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonComp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonMod" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="75" max="32767" attributes="0"/>
           </Group>
@@ -126,15 +126,21 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnyaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonComp">
+    <Component class="javax.swing.JButton" name="jButtonMod">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Comprobar"/>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonBorrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBorrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxClientes">
       <Properties>
@@ -144,6 +150,7 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
   </SubComponents>

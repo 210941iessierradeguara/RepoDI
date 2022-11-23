@@ -13,13 +13,26 @@ import java.util.ArrayList;
  */
 public class ClientesDialog extends javax.swing.JDialog {
     Principal principal;
+    ArrayList<Cliente> clientes;
+    private String nombre, ape, telf;
+    
+    public String regexTelf, regexNomApe;
+    
     /**
-     * Creates new form ClienteesDialog
+     * Creates new form ClienteesDialog, asigna como padre la clase Principal,
+     * de la misma recoge el arrayList Clientes y hace una copia, inicia los
+     * componentes del dialog, añade los clientes al combobox y asigna los 
+     * regex correspondientes.
      */
     public ClientesDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         principal = (Principal) parent;
+        clientes = principal.datos.getClientes();
         initComponents();
+        anyadirCombo();
+        
+        regexTelf = "(\\+34|0034|34)?(6|7|8|9)([0-9]){8}";
+        regexNomApe = "^[^0-9]*$";
     }
 
     /**
@@ -39,7 +52,7 @@ public class ClientesDialog extends javax.swing.JDialog {
         jLabelTelf = new javax.swing.JLabel();
         jTextFieldTelf = new javax.swing.JTextField();
         jButtonAnya = new javax.swing.JButton();
-        jButtonComp = new javax.swing.JButton();
+        jButtonMod = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
         jComboBoxClientes = new javax.swing.JComboBox<>();
 
@@ -62,9 +75,19 @@ public class ClientesDialog extends javax.swing.JDialog {
             }
         });
 
-        jButtonComp.setText("Comprobar");
+        jButtonMod.setText("Modificar");
+        jButtonMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModActionPerformed(evt);
+            }
+        });
 
         jButtonBorrar.setText("Eliminar");
+        jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,9 +111,9 @@ public class ClientesDialog extends javax.swing.JDialog {
                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                     .addComponent(jTextFieldApe)
                     .addComponent(jTextFieldTelf))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonComp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonAnya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(83, 83, 83))
@@ -116,31 +139,65 @@ public class ClientesDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTelf)
                     .addComponent(jTextFieldTelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonComp))
+                    .addComponent(jButtonMod))
                 .addGap(0, 75, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAnyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnyaActionPerformed
-        String nombre = jTextFieldNome.getText().toString();
-        String ape = jTextFieldApe.getText().toString();
-        String telf = jTextFieldTelf.getText().toString();
-        if(telf.matches("(\\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}" )
-           && nombre.matches("^[^0-9]*$")
-           && ape.matches("^[^0-9]*$"))
-        {
-            ArrayList<Cliente> clientes = principal.datos.getClientes();
-            clientes.add(new Cliente(nombre, ape, telf));
-            principal.datos.setClientes(clientes);
-            clientes.forEach(x -> 
+    /**
+     * Añade los cleintes de la lista al comboBox cuando se llama.
+     */
+    public void anyadirCombo()
+    {
+        clientes.forEach(x -> 
             {
                 jComboBoxClientes.addItem(x.toString());
             });
-            clientes.clear();
+    }
+    
+    /**
+     * Coge lo escrito en los TextField, comprueba si coinciden con el regex 
+     * asignado al principio del programa. De coincidir crea un nuevo cliente
+     * con esos datos, borra todos los elementos del ComboBox llama a 
+     * anyadirCombo para que rellene el comboBox con los clientes
+     * actualizados y vacía los campos de texto alguno.
+     * Al final actualiza el ArrayList de la clase datos creada en la clase 
+     * principal con los clientes nuevos.
+     * 
+     * @param evt 
+     */
+    private void jButtonAnyaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnyaActionPerformed
+        nombre = jTextFieldNome.getText().toString();
+        ape = jTextFieldApe.getText().toString();
+        telf = jTextFieldTelf.getText().toString();
+        
+        if(telf.matches(regexTelf)
+           && nombre.matches(regexNomApe)
+           && ape.matches(regexNomApe))
+        {
+            clientes.add(new Cliente(nombre, ape, telf));
+            jComboBoxClientes.removeAllItems();
+            anyadirCombo();
+            jTextFieldNome.setText("");
+            jTextFieldApe.setText("");
+            jTextFieldTelf.setText("");
         }
+        principal.datos.setClientes(clientes);
     }//GEN-LAST:event_jButtonAnyaActionPerformed
+
+    private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
+        BorrarClientDialog borrarClientDialog = new BorrarClientDialog(this, false);
+        borrarClientDialog.setTitle("Eliminar cliente");
+        borrarClientDialog.setVisible(true);
+    }//GEN-LAST:event_jButtonBorrarActionPerformed
+
+    private void jButtonModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModActionPerformed
+        ModificarClientDialog modificarClientDialog = new ModificarClientDialog(this, false);
+        modificarClientDialog.setTitle("Modificar Cliente");
+        modificarClientDialog.setVisible(true);
+    }//GEN-LAST:event_jButtonModActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,8 +245,8 @@ public class ClientesDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnya;
     private javax.swing.JButton jButtonBorrar;
-    private javax.swing.JButton jButtonComp;
-    private javax.swing.JComboBox<String> jComboBoxClientes;
+    private javax.swing.JButton jButtonMod;
+    public javax.swing.JComboBox<String> jComboBoxClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelApe;
     private javax.swing.JLabel jLabelNome;
