@@ -141,17 +141,17 @@ public class ModificarClientDialog extends javax.swing.JDialog {
             Cliente client = it.next();
             if(client.getTelefono().equals(telfV))
             {
-                if(telfN.matches(clientesDialog.regexTelf))
-                {
-                    client.setTelefono(telfN);
-                }
-                if(nomN.matches(clientesDialog.regexNomApe))
+                if(nomN.matches(clientesDialog.regexNomApe) && !nomN.isEmpty())
                 {
                     client.setName(nomN);
                 }
-                if(apeN.matches(clientesDialog.regexNomApe))
+                if(apeN.matches(clientesDialog.regexNomApe) && !apeN.isEmpty())
                 {
                     client.setApellidos(apeN);
+                }
+                if(telfN.matches(clientesDialog.regexTelf))
+                {
+                    client.setTelefono(telfN);
                 }
             }
         }
