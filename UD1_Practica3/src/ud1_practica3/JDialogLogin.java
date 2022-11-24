@@ -17,7 +17,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class JDialogLogin extends javax.swing.JDialog {
     /**
-     * Creates new form JDialogLogin
+     * Creates new form JDialogLogin y aplica el LookAndFeel
      */
     public JDialogLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -100,6 +100,10 @@ public class JDialogLogin extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Impone el LookAndFeel de WindowsClassic para el login.
+     */
     private void setFeel()
     {
         try {

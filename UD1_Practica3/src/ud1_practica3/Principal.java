@@ -24,12 +24,11 @@ public class Principal extends javax.swing.JFrame {
     public Datos datos = new Datos();
     boolean temaDia = true;
     /**
-     * Creates new form Entrada
+     * Creates new form Entrada. Pone de icono la imagen icono.png
      */
     public Principal() {
         initComponents();
         setIconImage(new ImageIcon("imagenes/icono.png").getImage());
-        
     }
 
     /**
@@ -67,6 +66,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButtonVehi.setText("Vehículos");
+        jButtonVehi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVehiActionPerformed(evt);
+            }
+        });
 
         jButtonRepar.setText("Reparaciones");
 
@@ -123,6 +127,16 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
  
+    /**
+     * En caso de que temaDia sea true aplica el lookAndFeel Motif y settea 
+     * temaDia a false.
+     * En caso de que temaDia sea false aplica el lookAndFeel WindowsClassic
+     * y settea el tema día a true;
+     * 
+     * Al final de ambos casos actualiza la ventana actual;
+     * 
+     * @param evt 
+     */
     private void jButtonThemeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonThemeActionPerformed
         if(temaDia)
         {
@@ -137,8 +151,7 @@ public class Principal extends javax.swing.JFrame {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             } catch (UnsupportedLookAndFeelException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-             SwingUtilities.updateComponentTreeUI(this);
+            }             
         }
         else
         {
@@ -154,16 +167,31 @@ public class Principal extends javax.swing.JFrame {
             } catch (UnsupportedLookAndFeelException ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
-            SwingUtilities.updateComponentTreeUI(this);
-            temaDia=true;
         }
+        SwingUtilities.updateComponentTreeUI(this);
     }//GEN-LAST:event_jButtonThemeActionPerformed
 
+    /**
+     * Accede al dialog que muestra e interactua con clientes.
+     * 
+     * @param evt 
+     */
     private void jButtonClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientActionPerformed
         ClientesDialog dialogoClient = new ClientesDialog(this, true);
         dialogoClient.setTitle("Clientes");
         dialogoClient.setVisible(true);
     }//GEN-LAST:event_jButtonClientActionPerformed
+
+    /**
+     * Accede al dialog que muestra e interactua con vehículos
+     * 
+     * @param evt 
+     */
+    private void jButtonVehiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVehiActionPerformed
+        VehiculosDialog vehiculosDialog = new VehiculosDialog(this, true);
+        vehiculosDialog.setTitle("Vehículos");
+        vehiculosDialog.setVisible(true);
+    }//GEN-LAST:event_jButtonVehiActionPerformed
 
     /**
      * @param args the command line arguments

@@ -55,6 +55,7 @@ public class ClientesDialog extends javax.swing.JDialog {
         jButtonMod = new javax.swing.JButton();
         jButtonBorrar = new javax.swing.JButton();
         jComboBoxClientes = new javax.swing.JComboBox<>();
+        jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,6 +96,13 @@ public class ClientesDialog extends javax.swing.JDialog {
             }
         });
 
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,6 +132,10 @@ public class ClientesDialog extends javax.swing.JDialog {
                     .addComponent(jButtonBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(83, 83, 83))
             .addComponent(jComboBoxClientes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonCancelar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +158,9 @@ public class ClientesDialog extends javax.swing.JDialog {
                     .addComponent(jLabelTelf)
                     .addComponent(jTextFieldTelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonMod))
-                .addGap(0, 75, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jButtonCancelar)
+                .addContainerGap())
         );
 
         pack();
@@ -193,18 +207,34 @@ public class ClientesDialog extends javax.swing.JDialog {
         principal.datos.setClientes(clientes);
     }//GEN-LAST:event_jButtonAnyaActionPerformed
 
+    /**
+     * Accede al dialogo para eliminar clientes mediante nº de teléfono.
+     * 
+     * @param evt 
+     */
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         BorrarClientDialog borrarClientDialog = new BorrarClientDialog(this, false);
         borrarClientDialog.setTitle("Eliminar cliente");
         borrarClientDialog.setVisible(true);
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
+    /**
+     * Accede al dialogo para modificar clientes mediante nº de teléfono.
+     * 
+     * @param evt 
+     */
     private void jButtonModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModActionPerformed
         ModificarClientDialog modificarClientDialog = new ModificarClientDialog(this, false);
         modificarClientDialog.setTitle("Modificar Cliente");
         modificarClientDialog.setVisible(true);
     }//GEN-LAST:event_jButtonModActionPerformed
 
+    /**
+     * Cuando se selecciona un elemento del ComboBox se actualizan los campos 
+     * con los datos en concreto.
+     * 
+     * @param evt 
+     */
     private void jComboBoxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClientesActionPerformed
         if(jComboBoxClientes.getSelectedItem() != null){
             String cliBusq = (String) jComboBoxClientes.getSelectedItem();
@@ -218,6 +248,15 @@ public class ClientesDialog extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_jComboBoxClientesActionPerformed
+
+    /**
+     * Cierra la ventana.
+     * 
+     * @param evt 
+     */
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +304,7 @@ public class ClientesDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnya;
     private javax.swing.JButton jButtonBorrar;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonMod;
     public javax.swing.JComboBox<String> jComboBoxClientes;
     private javax.swing.JLabel jLabel1;

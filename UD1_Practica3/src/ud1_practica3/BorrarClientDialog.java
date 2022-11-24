@@ -86,6 +86,15 @@ public class BorrarClientDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Crea un ListIterator del ArrayList de clientes. Mientras tenga elementos
+     * crea un cliente temporal con los datos del cliente en el momento actual
+     * del bucle, si coincide con el número de telefono introducido lo elimina
+     * del ArrayList.
+     * Limpia el comboBox, añade los clientes restantes y actualiza el ArrayList
+     * de clientes en principal.datos
+     * @param evt 
+     */
     private void jButtonAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptActionPerformed
         ListIterator<Cliente> it = clientesDialog.clientes.listIterator();
         while(it.hasNext())
@@ -103,6 +112,11 @@ public class BorrarClientDialog extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButtonAceptActionPerformed
 
+    /**
+     * Cierra este dialog
+     * 
+     * @param evt 
+     */
     private void jButtonCanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCanceActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCanceActionPerformed

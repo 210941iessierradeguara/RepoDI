@@ -15,7 +15,8 @@ public class ModificarClientDialog extends javax.swing.JDialog {
     ClientesDialog clientesDialog;
     String telfN, nomN, apeN, telfV;
     /**
-     * Creates new form MedificarClientDialog
+     * Creates new form MedificarClientDialog y asigna a clientesDialog como 
+     * padre.
      */
     public ModificarClientDialog(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
@@ -129,6 +130,19 @@ public class ModificarClientDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Recoge los datos introducidos en la ventana. Crea un iterador de listas
+     * mientras haya elementos en la lista, si el telefono a modificar coincide 
+     * con el del cliente en el momento del bucle cambia los datos introducidos
+     * siempre y cuando cumplan el regex correspondiente, de dejar algún 
+     * elemento vacio este no cambiará.
+     * 
+     * Se limpia el comboBox de elementos, se añade con los datos de la lista
+     * actualizada y se actualiza la lista en principal.datos con la local antes
+     * de cerrar la ventana automáticamente.
+     * 
+     * @param evt 
+     */
     private void jButtonModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModActionPerformed
         telfV = jTextFieldTelfV.getText().toString();
         telfN = jTextFieldTelfN.getText().toString();
@@ -162,6 +176,11 @@ public class ModificarClientDialog extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButtonModActionPerformed
 
+    /**
+     * Cierra este dialog
+     * 
+     * @param evt 
+     */
     private void jButtonCanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCanceActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCanceActionPerformed
