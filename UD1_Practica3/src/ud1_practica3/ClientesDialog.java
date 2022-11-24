@@ -89,6 +89,12 @@ public class ClientesDialog extends javax.swing.JDialog {
             }
         });
 
+        jComboBoxClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxClientesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,6 +204,20 @@ public class ClientesDialog extends javax.swing.JDialog {
         modificarClientDialog.setTitle("Modificar Cliente");
         modificarClientDialog.setVisible(true);
     }//GEN-LAST:event_jButtonModActionPerformed
+
+    private void jComboBoxClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClientesActionPerformed
+        if(jComboBoxClientes.getSelectedItem() != null){
+            String cliBusq = (String) jComboBoxClientes.getSelectedItem();
+
+            for (Cliente cliente : clientes) {
+                if(cliente.toString().equals(cliBusq)){
+                    jTextFieldNome.setText(cliente.getName());
+                    jTextFieldApe.setText(cliente.getApellidos());
+                    jTextFieldTelf.setText(cliente.getTelefono());
+                }
+            }
+        }
+    }//GEN-LAST:event_jComboBoxClientesActionPerformed
 
     /**
      * @param args the command line arguments
