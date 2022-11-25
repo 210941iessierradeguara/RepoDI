@@ -43,6 +43,8 @@ public class BorrarClientDialog extends javax.swing.JDialog {
         jLabelTitu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitu.setText("Introduzca el número de telefono del cliente a eliminar.");
 
+        jTextFieldTelf.setToolTipText("ej.123445566");
+
         jButtonAcept.setText("Eliminar");
         jButtonAcept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

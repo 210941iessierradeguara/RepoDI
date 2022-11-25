@@ -5,6 +5,7 @@
 package ud1_practica3;
 
 import clases.Datos;
+import clases.Mecanico;
 import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,7 @@ import javax.swing.plaf.synth.SynthLookAndFeel;
  * @author DAM2Alu5
  */
 public class Principal extends javax.swing.JFrame {
-    public String mechanic;
+    public Mecanico mechanic;
     public Datos datos = new Datos();
     boolean temaDia = true;
     /**

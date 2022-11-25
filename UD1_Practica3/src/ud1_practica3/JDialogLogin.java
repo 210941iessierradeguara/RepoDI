@@ -4,6 +4,8 @@
  */
 package ud1_practica3;
 
+import clases.Mecanico;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -16,6 +18,8 @@ import javax.swing.UnsupportedLookAndFeelException;
  * @author DAM2Alu5
  */
 public class JDialogLogin extends javax.swing.JDialog {
+       Mecanico juan, pepe;
+       HashMap<String, Mecanico> mecanicosLogin;
     /**
      * Creates new form JDialogLogin y aplica el LookAndFeel
      */
@@ -24,6 +28,11 @@ public class JDialogLogin extends javax.swing.JDialog {
         initComponents();
         setFeel();
         SwingUtilities.updateComponentTreeUI(this);
+        juan = new Mecanico(1, "Juan", "Juan", "Juan123");
+        pepe = new Mecanico(2, "Pepe", "Pepe", "pepe123");
+        mecanicosLogin = new HashMap<String,Mecanico>();
+        mecanicosLogin.put(pepe.getNombreUsr(), pepe);
+        mecanicosLogin.put(juan.getNombreUsr(), juan);
     }
 
     /**
@@ -120,10 +129,12 @@ public class JDialogLogin extends javax.swing.JDialog {
     }
     
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
-        if(TextFieldUser.getText().equals("Juan") && PasswordFieldMec.getText().equals("Juan123"))
+        String usr = TextFieldUser.getText();
+        String pssw = PasswordFieldMec.getText();
+        if(mecanicosLogin.get(usr).PassCheck(pssw))
         {
             Principal principal = new Principal();
-            principal.mechanic = TextFieldUser.getText().toString();
+            principal.mechanic = mecanicosLogin.get(usr);
             principal.setTitle("Talleres Fitipaldi");
             principal.setVisible(true);
             this.dispose();
