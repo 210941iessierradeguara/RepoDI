@@ -131,6 +131,7 @@
     <Component class="javax.swing.JButton" name="jButtonMod">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+M"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModActionPerformed"/>
@@ -139,6 +140,7 @@
     <Component class="javax.swing.JButton" name="jButtonCance">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cacelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+B"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCanceActionPerformed"/>

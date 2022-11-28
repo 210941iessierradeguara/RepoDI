@@ -38,6 +38,9 @@ public class ReparacionesJDialog extends javax.swing.JDialog {
         jTableRep.setModel(dtm);
         
         anyadirRep();
+        jButtonAnyadir.setMnemonic('a');
+        jButtonEliminar.setMnemonic('e');
+        jButtonCancelar.setMnemonic('b');
     }
 
     /**
@@ -76,6 +79,7 @@ public class ReparacionesJDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTableRep);
 
         jButtonAnyadir.setText("Añadir");
+        jButtonAnyadir.setToolTipText("ALT+A");
         jButtonAnyadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAnyadirActionPerformed(evt);
@@ -83,6 +87,7 @@ public class ReparacionesJDialog extends javax.swing.JDialog {
         });
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setToolTipText("ALT+B");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -90,6 +95,7 @@ public class ReparacionesJDialog extends javax.swing.JDialog {
         });
 
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.setToolTipText("ALT+E");
         jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEliminarActionPerformed(evt);

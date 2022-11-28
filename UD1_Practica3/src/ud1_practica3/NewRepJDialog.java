@@ -55,6 +55,9 @@ public class NewRepJDialog extends javax.swing.JDialog {
         
         jTextAreaPiezas.setEditable(false);
         jTextAreaPiezas.setText(piezas.toString());
+        
+        jButtonAceptar.setMnemonic('a');
+        jButtonCancelar.setMnemonic('b');
     }
 
     /**
@@ -99,6 +102,7 @@ public class NewRepJDialog extends javax.swing.JDialog {
         jLabelNuevRepTit.setText("Nueva reparación");
 
         jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setToolTipText("ALT+A");
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAceptarActionPerformed(evt);
@@ -106,6 +110,7 @@ public class NewRepJDialog extends javax.swing.JDialog {
         });
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setToolTipText("ALT+B");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);

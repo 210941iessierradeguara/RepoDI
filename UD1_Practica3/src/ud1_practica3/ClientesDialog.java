@@ -33,6 +33,11 @@ public class ClientesDialog extends javax.swing.JDialog {
         initComponents();
         anyadirCombo();
         
+        jButtonAnya.setMnemonic('a');
+        jButtonBorrar.setMnemonic('e');
+        jButtonCancelar.setMnemonic('b');
+        jButtonMod.setMnemonic('m');
+        
         regexTelf = "(\\+34|0034|34)?(6|7|8|9)([0-9]){8}";
         regexNomApe = "^[^0-9]*$";
     }
@@ -74,6 +79,7 @@ public class ClientesDialog extends javax.swing.JDialog {
         jTextFieldTelf.setToolTipText("ej.123445566");
 
         jButtonAnya.setText("Añadir");
+        jButtonAnya.setToolTipText("ALT+A");
         jButtonAnya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAnyaActionPerformed(evt);
@@ -81,6 +87,7 @@ public class ClientesDialog extends javax.swing.JDialog {
         });
 
         jButtonMod.setText("Modificar");
+        jButtonMod.setToolTipText("ALT+M");
         jButtonMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonModActionPerformed(evt);
@@ -88,6 +95,7 @@ public class ClientesDialog extends javax.swing.JDialog {
         });
 
         jButtonBorrar.setText("Eliminar");
+        jButtonBorrar.setToolTipText("ALT+E");
         jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBorrarActionPerformed(evt);
@@ -101,6 +109,7 @@ public class ClientesDialog extends javax.swing.JDialog {
         });
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setToolTipText("ALT+B");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);

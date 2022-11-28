@@ -26,6 +26,13 @@ public class NewVehiJDialog extends javax.swing.JDialog {
         super(parent, modal);
         vehiculosDialog = (VehiculosDialog) parent;
         initComponents();
+        
+        for (int i = 0; i < vehiculosDialog.principal.datos.getClientes().size(); i++) {
+            jComboBoxTelfs.addItem(vehiculosDialog.principal.datos
+                    .getClientes().get(i).getTelefono().toString());
+        }
+        jButtonAceptar.setMnemonic('a');
+        jButtonCancelar.setMnemonic('b');
     }
 
     /**
@@ -45,9 +52,9 @@ public class NewVehiJDialog extends javax.swing.JDialog {
         jLabelMarca = new javax.swing.JLabel();
         jTextFieldMarca = new javax.swing.JTextField();
         jLabelPorpietario = new javax.swing.JLabel();
-        jTextFieldTelfPropietario = new javax.swing.JTextField();
         jButtonCancelar = new javax.swing.JButton();
         jButtonAceptar = new javax.swing.JButton();
+        jComboBoxTelfs = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -63,15 +70,8 @@ public class NewVehiJDialog extends javax.swing.JDialog {
 
         jLabelPorpietario.setText("Propietario");
 
-        jTextFieldTelfPropietario.setText("ej.666554411");
-        jTextFieldTelfPropietario.setToolTipText("Telefono del propietario");
-        jTextFieldTelfPropietario.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextFieldTelfPropietarioFocusGained(evt);
-            }
-        });
-
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setToolTipText("ALT+B");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -79,6 +79,7 @@ public class NewVehiJDialog extends javax.swing.JDialog {
         });
 
         jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setToolTipText("ALT+A");
         jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAceptarActionPerformed(evt);
@@ -93,6 +94,10 @@ public class NewVehiJDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonAceptar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCancelar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -108,14 +113,10 @@ public class NewVehiJDialog extends javax.swing.JDialog {
                             .addComponent(jLabelPorpietario)
                             .addComponent(jLabelMarca))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldTelfPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 58, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonAceptar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonCancelar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                            .addComponent(jComboBoxTelfs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 94, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -131,9 +132,9 @@ public class NewVehiJDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPorpietario)
-                    .addComponent(jTextFieldTelfPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelModelo)
-                    .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxTelfs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar)
@@ -157,7 +158,7 @@ public class NewVehiJDialog extends javax.swing.JDialog {
         matricula = jTextFieldMatricula.getText();
         modelo = jTextFieldModelo.getText();
         marca = jTextFieldMarca.getText();
-        telfPropietario = jTextFieldTelfPropietario.getText();
+        telfPropietario = jComboBoxTelfs.getSelectedItem().toString();
         if(!matricula.isEmpty() && !modelo.isEmpty() && !marca.isEmpty() && 
                 !telfPropietario.isEmpty() 
                 && matricula.matches(vehiculosDialog.regexMatri) 
@@ -172,7 +173,6 @@ public class NewVehiJDialog extends javax.swing.JDialog {
             jTextFieldMarca.setText("");
             jTextFieldMatricula.setText("");
             jTextFieldModelo.setText("");
-            jTextFieldTelfPropietario.setText("");
             
             vehiculosDialog.principal.datos.setVehiculos(
                     vehiculosDialog.vehiculos);
@@ -192,10 +192,6 @@ public class NewVehiJDialog extends javax.swing.JDialog {
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
-
-    private void jTextFieldTelfPropietarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTelfPropietarioFocusGained
-        jTextFieldTelfPropietario.setText("");
-    }//GEN-LAST:event_jTextFieldTelfPropietarioFocusGained
 
     /**
      * @param args the command line arguments
@@ -242,6 +238,7 @@ public class NewVehiJDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JComboBox<String> jComboBoxTelfs;
     private javax.swing.JLabel jLabelMarca;
     private javax.swing.JLabel jLabelMatri;
     private javax.swing.JLabel jLabelModelo;
@@ -250,6 +247,5 @@ public class NewVehiJDialog extends javax.swing.JDialog {
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldMatricula;
     private javax.swing.JTextField jTextFieldModelo;
-    private javax.swing.JTextField jTextFieldTelfPropietario;
     // End of variables declaration//GEN-END:variables
 }

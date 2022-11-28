@@ -169,6 +169,7 @@
     <Component class="javax.swing.JButton" name="jButtonAceptar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+A"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAceptarActionPerformed"/>
@@ -177,6 +178,7 @@
     <Component class="javax.swing.JButton" name="jButtonCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+B"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelarActionPerformed"/>

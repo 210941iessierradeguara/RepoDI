@@ -22,6 +22,8 @@ public class BorrarClientDialog extends javax.swing.JDialog {
         super(parent, modal);
         clientesDialog = (ClientesDialog) parent;
         initComponents();
+        jButtonAcept.setMnemonic('E');
+        jButtonCance.setMnemonic('b');
     }
 
     /**
@@ -53,6 +55,7 @@ public class BorrarClientDialog extends javax.swing.JDialog {
         });
 
         jButtonAcept.setText("Eliminar");
+        jButtonAcept.setToolTipText("ALT+E");
         jButtonAcept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAceptActionPerformed(evt);
@@ -60,6 +63,7 @@ public class BorrarClientDialog extends javax.swing.JDialog {
         });
 
         jButtonCance.setText("Cancelar");
+        jButtonCance.setToolTipText("ALT+B");
         jButtonCance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCanceActionPerformed(evt);

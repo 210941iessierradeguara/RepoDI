@@ -24,6 +24,9 @@ public class ModificarClientDialog extends javax.swing.JDialog {
         super(parent, modal);
         clientesDialog = (ClientesDialog) parent;
         initComponents();
+        
+        jButtonMod.setMnemonic('m');
+        jButtonCance.setMnemonic('b');
     }
 
     /**
@@ -64,6 +67,7 @@ public class ModificarClientDialog extends javax.swing.JDialog {
         jLabelTelfN.setText("Nuevo telefono:");
 
         jButtonMod.setText("Modificar");
+        jButtonMod.setToolTipText("ALT+M");
         jButtonMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonModActionPerformed(evt);
@@ -71,6 +75,7 @@ public class ModificarClientDialog extends javax.swing.JDialog {
         });
 
         jButtonCance.setText("Cacelar");
+        jButtonCance.setToolTipText("ALT+B");
         jButtonCance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCanceActionPerformed(evt);

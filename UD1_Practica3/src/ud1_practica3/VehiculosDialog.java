@@ -45,6 +45,10 @@ public class VehiculosDialog extends javax.swing.JDialog {
         jTableVehi.setModel(dtm);
         anyadirVehi();
         
+        jButtonAnya.setMnemonic('a');
+        jButtonDel.setMnemonic('e');
+        jButtonCancelar.setMnemonic('b');
+                
         regexMatri = "^[0-9]{1,4}(?!.*(LL|CH))[BCDFGHJKLMNPRSTVWXYZ]{3}";
         regexTelf = "(\\+34|0034|34)?(6|7|8|9)([0-9]){8}";
     }
@@ -100,6 +104,7 @@ public class VehiculosDialog extends javax.swing.JDialog {
         jLabelTitleVehi.setText("Vehículos");
 
         jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setToolTipText("ALT+B");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCancelarActionPerformed(evt);
@@ -107,6 +112,7 @@ public class VehiculosDialog extends javax.swing.JDialog {
         });
 
         jButtonAnya.setText("Añadir");
+        jButtonAnya.setToolTipText("ALT+A");
         jButtonAnya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAnyaActionPerformed(evt);
@@ -114,6 +120,7 @@ public class VehiculosDialog extends javax.swing.JDialog {
         });
 
         jButtonDel.setText("Eliminar");
+        jButtonDel.setToolTipText("ALT+E");
         jButtonDel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDelActionPerformed(evt);

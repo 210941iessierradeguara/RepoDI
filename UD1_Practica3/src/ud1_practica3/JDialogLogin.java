@@ -57,11 +57,7 @@ public class JDialogLogin extends javax.swing.JDialog {
 
         jLabelNMec.setText("Mecánico");
 
-        TextFieldUser.setText("Juan");
-
         jLabelPass.setText("Contraseña");
-
-        PasswordFieldMec.setText("Juan123");
 
         ButtonEntrar.setText("Acceder");
         ButtonEntrar.addActionListener(new java.awt.event.ActionListener() {

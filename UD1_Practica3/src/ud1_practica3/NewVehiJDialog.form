@@ -27,7 +27,12 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jButtonAceptar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonCancelar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabelMatri" min="-2" max="-2" attributes="0"/>
@@ -46,16 +51,11 @@
                           <Component id="jLabelMarca" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jTextFieldTelfPropietario" min="-2" pref="90" max="-2" attributes="0"/>
-                          <Component id="jTextFieldMarca" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextFieldMarca" alignment="1" pref="90" max="32767" attributes="0"/>
+                          <Component id="jComboBoxTelfs" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButtonAceptar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButtonCancelar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="94" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -76,9 +76,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelPorpietario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldTelfPropietario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldModelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxTelfs" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="143" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -126,18 +126,10 @@
         <Property name="text" type="java.lang.String" value="Propietario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldTelfPropietario">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="ej.666554411"/>
-        <Property name="toolTipText" type="java.lang.String" value="Telefono del propietario"/>
-      </Properties>
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldTelfPropietarioFocusGained"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+B"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCancelarActionPerformed"/>
@@ -146,10 +138,21 @@
     <Component class="javax.swing.JButton" name="jButtonAceptar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+A"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAceptarActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBoxTelfs">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

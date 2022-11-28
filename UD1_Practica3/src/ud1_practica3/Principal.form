@@ -103,6 +103,7 @@
     <Component class="javax.swing.JButton" name="jButtonClient">
       <Properties>
         <Property name="text" type="java.lang.String" value="Clientes"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+C"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonClientActionPerformed"/>
@@ -111,6 +112,7 @@
     <Component class="javax.swing.JButton" name="jButtonVehi">
       <Properties>
         <Property name="text" type="java.lang.String" value="Veh&#xed;culos"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+V"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVehiActionPerformed"/>
@@ -119,6 +121,7 @@
     <Component class="javax.swing.JButton" name="jButtonRepar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reparaciones"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+R"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonReparActionPerformed"/>
@@ -127,6 +130,7 @@
     <Component class="javax.swing.JButton" name="jButtonTheme">
       <Properties>
         <Property name="text" type="java.lang.String" value="Tema"/>
+        <Property name="toolTipText" type="java.lang.String" value="ALT+N"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonThemeActionPerformed"/>

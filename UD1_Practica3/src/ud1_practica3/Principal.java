@@ -33,6 +33,10 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         setIconImage(new ImageIcon("imagenes/icono.png").getImage());
+        jButtonClient.setMnemonic('C');
+        jButtonRepar.setMnemonic('r');
+        jButtonVehi.setMnemonic('v');
+        jButtonTheme.setMnemonic('n');
     }
 
     /**
@@ -63,6 +67,7 @@ public class Principal extends javax.swing.JFrame {
         jLabelImgStock.setMinimumSize(new java.awt.Dimension(600, 400));
 
         jButtonClient.setText("Clientes");
+        jButtonClient.setToolTipText("ALT+C");
         jButtonClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClientActionPerformed(evt);
@@ -70,6 +75,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButtonVehi.setText("Vehículos");
+        jButtonVehi.setToolTipText("ALT+V");
         jButtonVehi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVehiActionPerformed(evt);
@@ -77,6 +83,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButtonRepar.setText("Reparaciones");
+        jButtonRepar.setToolTipText("ALT+R");
         jButtonRepar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReparActionPerformed(evt);
@@ -84,6 +91,7 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButtonTheme.setText("Tema");
+        jButtonTheme.setToolTipText("ALT+N");
         jButtonTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonThemeActionPerformed(evt);
