@@ -14,7 +14,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
+ * Login por el que solo pueden acceder los mecánicos a la aplicación.
+ * 
  * @author DAM2Alu5
  */
 public class JDialogLogin extends javax.swing.JDialog {

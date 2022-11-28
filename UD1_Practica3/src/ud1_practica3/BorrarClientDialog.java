@@ -8,7 +8,8 @@ import clases.Cliente;
 import java.util.ListIterator;
 
 /**
- *
+ *Clase encargada de borrar clientes guardado en base a su número de teléfono.
+ * 
  * @author DAM2Alu5
  */
 public class BorrarClientDialog extends javax.swing.JDialog {
@@ -43,7 +44,13 @@ public class BorrarClientDialog extends javax.swing.JDialog {
         jLabelTitu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitu.setText("Introduzca el número de telefono del cliente a eliminar.");
 
-        jTextFieldTelf.setToolTipText("ej.123445566");
+        jTextFieldTelf.setText("ej.666554433");
+        jTextFieldTelf.setToolTipText("Nº de teléfono del cliente a eliminar");
+        jTextFieldTelf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldTelfFocusGained(evt);
+            }
+        });
 
         jButtonAcept.setText("Eliminar");
         jButtonAcept.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +129,10 @@ public class BorrarClientDialog extends javax.swing.JDialog {
     private void jButtonCanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCanceActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCanceActionPerformed
+
+    private void jTextFieldTelfFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTelfFocusGained
+        jTextFieldTelf.setText("");
+    }//GEN-LAST:event_jTextFieldTelfFocusGained
 
     /**
      * @param args the command line arguments

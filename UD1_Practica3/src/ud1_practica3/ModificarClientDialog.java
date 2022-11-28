@@ -8,7 +8,9 @@ import clases.Cliente;
 import java.util.ListIterator;
 
 /**
- *
+ * Clase encargada de modificar un cliente guardado buscado por su número de 
+ * teléfono.
+ * 
  * @author DAM2Alu5
  */
 public class ModificarClientDialog extends javax.swing.JDialog {
@@ -52,6 +54,8 @@ public class ModificarClientDialog extends javax.swing.JDialog {
         jLabelTitleMod.setText("Modifique el cliente en los campos deseados");
 
         jLabelTelfV.setText("NºTelf a modificar:");
+
+        jTextFieldTelfV.setToolTipText("Nº de telefono del cliente");
 
         jLabelNomN.setText("Nuevo Nombre:");
 

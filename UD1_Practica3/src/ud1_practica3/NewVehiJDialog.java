@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Clase encargada de añadir nuevos vehículos a la tabla y a la lista de 
+ * vehiculos.
  *
  * @author DAM2Alu5
  */
@@ -60,6 +62,14 @@ public class NewVehiJDialog extends javax.swing.JDialog {
         jLabelMarca.setText("Marca");
 
         jLabelPorpietario.setText("Propietario");
+
+        jTextFieldTelfPropietario.setText("ej.666554411");
+        jTextFieldTelfPropietario.setToolTipText("Telefono del propietario");
+        jTextFieldTelfPropietario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextFieldTelfPropietarioFocusGained(evt);
+            }
+        });
 
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +192,10 @@ public class NewVehiJDialog extends javax.swing.JDialog {
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jTextFieldTelfPropietarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTelfPropietarioFocusGained
+        jTextFieldTelfPropietario.setText("");
+    }//GEN-LAST:event_jTextFieldTelfPropietarioFocusGained
 
     /**
      * @param args the command line arguments

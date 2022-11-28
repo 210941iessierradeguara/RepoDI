@@ -17,6 +17,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.plaf.synth.SynthLookAndFeel;
 
 /**
+ * Clase principal desde la cual se puede acceder a clientes, vehículos y 
+ * reparaciones además de poseer el botón para cambiar el aspecto de la 
+ * aplicación.
  *
  * @author DAM2Alu5
  */
@@ -74,6 +77,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButtonRepar.setText("Reparaciones");
+        jButtonRepar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReparActionPerformed(evt);
+            }
+        });
 
         jButtonTheme.setText("Tema");
         jButtonTheme.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +201,17 @@ public class Principal extends javax.swing.JFrame {
         vehiculosDialog.setTitle("Vehículos");
         vehiculosDialog.setVisible(true);
     }//GEN-LAST:event_jButtonVehiActionPerformed
+
+    /**
+     * Accede al dialog que muestra e interactua con las reparaciones.
+     * 
+     * @param evt 
+     */
+    private void jButtonReparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReparActionPerformed
+        ReparacionesJDialog reparacionesJDialog = new ReparacionesJDialog(this, true);
+        reparacionesJDialog.setTitle("Reparaciones");
+        reparacionesJDialog.setVisible(true);
+    }//GEN-LAST:event_jButtonReparActionPerformed
 
     /**
      * @param args the command line arguments

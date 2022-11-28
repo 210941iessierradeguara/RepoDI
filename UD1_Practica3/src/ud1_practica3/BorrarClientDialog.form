@@ -62,8 +62,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelf">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="ej.123445566"/>
+        <Property name="text" type="java.lang.String" value="ej.666554433"/>
+        <Property name="toolTipText" type="java.lang.String" value="N&#xba; de tel&#xe9;fono del cliente a eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldTelfFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAcept">
       <Properties>

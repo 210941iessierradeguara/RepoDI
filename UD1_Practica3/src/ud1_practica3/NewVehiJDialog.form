@@ -127,6 +127,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTelfPropietario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ej.666554411"/>
+        <Property name="toolTipText" type="java.lang.String" value="Telefono del propietario"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldTelfPropietarioFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCancelar">
       <Properties>

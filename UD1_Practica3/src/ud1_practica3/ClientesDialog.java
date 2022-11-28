@@ -6,8 +6,10 @@ package ud1_practica3;
 
 import clases.Cliente;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
+ * Clase principal para añadir clientes, eliminarlos y modificarlos.
  *
  * @author DAM2Alu5
  */
@@ -205,6 +207,12 @@ public class ClientesDialog extends javax.swing.JDialog {
             jTextFieldNome.setText("");
             jTextFieldApe.setText("");
             jTextFieldTelf.setText("");
+        } 
+        else 
+        {
+            JOptionPane.showMessageDialog(null, 
+                    "Uno o más campos están vacíos/no son válidos",
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
         principal.datos.setClientes(clientes);
     }//GEN-LAST:event_jButtonAnyaActionPerformed

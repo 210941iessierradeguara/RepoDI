@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * Clase con tabla para mostrar los vehículos guardados en lista desde la 
+ * cual también se pueden borrar de la lista y de la tabla.
  *
  * @author DAM2Alu5
  */
@@ -152,7 +154,7 @@ public class VehiculosDialog extends javax.swing.JDialog {
 
     /**
      * Vacia la tabla de cualquier vehículo y pone las líneas a 0,
-     * por cada vehículo en la lista mete los datos del vehiculo en un arraylist 
+     * por cada vehículo en la lista mete los datos del vehiculo en un array 
      * que luego se reparte al añadir una row con los datos de dicho vehículo
      * settea el dtm a la tabla de nuevo.
      */
@@ -236,8 +238,6 @@ public class VehiculosDialog extends javax.swing.JDialog {
                     "Vehículo sin seleccionar", "ERROR", 
                     JOptionPane.ERROR_MESSAGE);
         }
-        
-        
     }//GEN-LAST:event_jButtonDelActionPerformed
 
     /**
